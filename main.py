@@ -19,9 +19,12 @@ JOKE = "I told my son his days are numbered. He said, 'Dad, that's dark.' I said
 
 
 def main() -> None:
+    joke = JOKE.strip()
+    if not 1 <= len(joke) <= 200:
+        raise ValueError(f"entry must be 1-200 characters, got {len(joke)}")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
-        f.write(JOKE)
+        f.write(joke)
 
 
 if __name__ == "__main__":
